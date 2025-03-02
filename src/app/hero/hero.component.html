@@ -1,0 +1,29 @@
+
+<div *ngIf="movies.length > 0" class="hero-container">
+    <ngb-carousel [interval]="4000" [pauseOnHover]="false">
+        <ng-template ngbSlide *ngFor="let movie of movies">
+            <div class="hero-slide"> 
+                <!-- (onSearch)="searchMovie($event)" -->
+                <img [src]="'https://image.tmdb.org/t/p/original' + movie.backdrop_path" alt="{{ movie.title }}" />
+                <div class="overlay">
+                    <span class="rating">IMDB: {{ movie.vote_average }}</span>
+                    <h1 class="movie-title">{{ movie.title }}</h1>
+                    <p class="movie-desc">{{ movie.overview }}</p>
+                    <div class="meta-info">
+                        <p><strong>Release Date:</strong> {{ movie.release_date }}</p>
+                        <p><strong>Rating:</strong> {{ movie.vote_average }}</p>
+                    </div>
+                    <!-- กดเพิ่มหนังไปยังตระกร้า -->
+                    <button type="button" class="btn btn-success" (click)="addToCart(movie)">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-plus-circle-fill"
+                            viewBox="0 0 16 16">
+                            <path
+                                d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3z" />
+                        </svg>
+                    </button>
+                    <!--  -->
+                </div>
+            </div>
+        </ng-template>
+    </ngb-carousel>
+</div>

@@ -1,0 +1,29 @@
+<app-navbar></app-navbar>
+
+<div class="cart-container">
+    <h4>รายการหนังในตะกร้า</h4>
+    <ul>
+        <li *ngFor="let movie of cart">
+            <span>{{ movie.title }}</span>
+            <button class="btn btn-danger btn-sm" (click)="removeFromCart(movie.id)">ลบ</button>
+        </li>
+    </ul>
+    <div *ngIf="cart.length > 0" class="button-pay">
+        <button class="btn btn-pay" (click)="openPaymentPopup()" >pay</button>
+    </div>
+    <!-- Popup Payment -->
+    <div *ngIf="showPopup" class="payment-popup">
+        <div class="popup-content">
+            <h4>รายละเอียดการโอนเงิน</h4>
+            <p>กรุณาโอนเงินไปที่บัญชี:</p>
+            <p><strong>ธนาคาร: กสิกรไทย</strong></p>
+            <p><strong>เลขที่บัญชี: 123-456-7890</strong></p>
+            <p><strong>ชื่อบัญชี: Movie Payment</strong></p>
+            <p><strong>{{ countdown }}</strong> วินาทีในการชำระเงิน</p>
+    
+            <button class="btn btn-danger" (click)="closePaymentPopup()">ปิด</button>
+        </div>
+    </div>
+    <!--  -->
+    <button class="btn btn-warning" (click)="clearCart()">Clear Cart</button>
+</div>
