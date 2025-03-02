@@ -1,4 +1,4 @@
-# Frontend2
+# Frontend 2
 
 ขั้นตอนการรัยโปรเจค
 1. git clone https://github.com/sadanon-ria/company_task2.git
